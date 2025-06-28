@@ -6,7 +6,7 @@ const outputPath = '.badges/solvedac.svg';
 
 async function fetchProfile() {
   const res = await fetch(`https://solved.ac/api/v3/search/user?query=jaehyeon3357`);
-  const data = await res.json;
+  const data = await res.json();
   console.log("Fetched data:", data); // DEBUG
   return data.items[0];
 }
