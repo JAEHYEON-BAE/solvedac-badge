@@ -2,7 +2,7 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 
 const handle = 'jaehyeon3357';
-const outputPath = '.badges/solvedac.svg';
+const outputPath = 'badges/solvedac.svg';
 
 async function fetchProfile() {
   const res = await fetch(`https://solved.ac/api/v3/search/user?query=jaehyeon3357`);
