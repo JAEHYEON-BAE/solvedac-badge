@@ -48,9 +48,14 @@ function generateBadge(data) {
 }
 
 async function main() {
-  const profile = await fetchProfile();
-  fs.writeFileSync('./data/profile.json', JSON.stringify(profile, null, 2));
-  generateBadge(profile);
+  try {
+    const profile = await fetchProfile();
+    fs.writeFileSync('./data/profile.json', JSON.stringify(profile, null, 2));
+    generateBadge(profile);
+  } catch (err) {
+    console.error("❌ Failed to fetch or process solved.ac data:", err.message);
+    process.exit(1);  // 실패를 로그로 남기고 종료
+  }
 }
 
 main();
