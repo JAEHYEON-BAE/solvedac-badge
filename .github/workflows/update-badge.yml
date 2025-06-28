@@ -1,1 +1,33 @@
+name: Update Solved.ac Badge
 
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 매일 자정 UTC (한국 기준 9AM)
+  workflow_dispatch:     # 수동 실행도 가능
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run generate script
+        run: node generate.js
+
+      - name: Commit and push badge
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add badges/solvedac.svg data/profile.json
+          git commit -m "Update badge [skip ci]" || echo "No changes"
+          git push
