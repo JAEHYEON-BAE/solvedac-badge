@@ -5,7 +5,7 @@ const handle = 'jaehyeon3357';
 const outputPath = 'badges/solvedac.svg';
 
 async function fetchProfile() {
-  const res = await fetch(`https://solved.ac/api/v3/search/user?query=jaehyeon3357`);
+  const res = await fetch(`https://solved.ac/api/v3/search/user?query=${handle}`);
   const data = await res.json();
   console.log("Fetched data:", data); // DEBUG
   return data.items[0];
