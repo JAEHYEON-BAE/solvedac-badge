@@ -23,25 +23,88 @@ function getTierName(tier) {
   return tiers[tier] || "Unrated";
 }
 
+function getPercentage(rating) {
+  const ratings = [
+    0, 
+    30, 60, 90, 120, 150,
+    200, 300, 400, 500, 650,
+    800, 950, 1100, 1250, 1400,
+    1600, 1750, 1900, 2000, 2100,
+    2200, 2300, 2400, 2500, 2600,
+    2700, 2800, 2850, 2900, 2950,
+    3000
+  ];
+  for (let i = 0; i < ratings.length; i++) {
+    if (rating >= arr[i]) {
+      if (arr[i]==3000) return 100;
+      else return (rating-arr[i])*100/(arr[i+1]-arr[i]);
+    }
+  }
+}
+  
+
 function generateBadge(data) {
   const tierName = getTierName(data.tier);
   const solved = data.solvedCount;
+  const rating = data.rating;
+  const percent = getPercentage(rating);
 
   const svg = `
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="20">
-  <linearGradient id="a" x2="0" y2="100%">
-    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
-    <stop offset="1" stop-opacity=".1"/>
+<svg width="600" height="120" xmlns="http://www.w3.org/2000/svg">
+  <linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0" stop-color="#27e2a4"/>
+    <stop offset="1" stop-color="#00b4fc"/>
   </linearGradient>
-  <rect rx="3" width="240" height="20" fill="#555"/>
-  <rect rx="3" x="80" width="160" height="20" fill="#007ec6"/>
-  <path fill="#007ec6" d="M80 0h4v20h-4z"/>
-  <rect rx="3" width="240" height="20" fill="url(#a)"/>
-  <g fill="#fff" text-anchor="middle"
-     font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-    <text x="40" y="14">solved.ac</text>
-    <text x="160" y="14">${tierName} (${solved} solved)</text>
+  <style>
+    .text {
+      fill: #000;
+    }
+    .bar-bg {
+      fill: #000000;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      .text {
+        fill: #fff;
+      }
+      .bar-bg {
+        fill: #fff;
+      }
+    }
+  </style>
+
+  <g font-family="Noto Sans,Verdana,Geneva,sans-serif" font-size="20" font-weight="bold">
+    <text id="rating" x="5%" y="50%" class="text" text-anchor="middle">${score}
+      <animate
+        attributeName="x"
+        from="5%"
+        to="${percent}%"
+        dur="1s"
+        fill="freeze"
+        calcMode="spline" 
+        keyTimes="0;1" 
+        keySplines="0 0 0.58 1.0"
+        />
+    </text>
+    
+    <text x="0" y="100%" class="text" text-anchor="start">${tierName}</text>
+    <text x="100%" y="100%" class="text" text-anchor="end">${solved} solved</text>
+
   </g>
+
+  <rect x="5%" y="67" width="90%" height="30" class="bar-bg"/>
+  <rect x="5%" y="67" width="90%" height="30" fill="url(#a)">
+    <animate 
+      attributeName="width" 
+      from="0" 
+      to="${percent}%" 
+      dur="1.5s" 
+      fill="freeze" 
+      calcMode="spline" 
+      keyTimes="0;1" 
+      keySplines="0 0 0.58 1.0"
+    />
+  </rect>
 </svg>
   `.trim();
 
