@@ -74,7 +74,7 @@ function generateBadge(data) {
   </style>
 
   <g font-family="Noto Sans,Verdana,Geneva,sans-serif" font-size="20" font-weight="bold">
-    <text id="rating" x="5%" y="50%" class="text" text-anchor="middle">${score}
+    <text id="rating" x="5%" y="50%" class="text" text-anchor="middle">${rating}
       <animate
         attributeName="x"
         from="5%"
