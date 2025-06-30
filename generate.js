@@ -35,11 +35,13 @@ function getPercentage(rating) {
     3000
   ];
   for (let i = 0; i < ratings.length; i++) {
-    if (rating >= ratings[i]) {
-      if (ratings[i]==3000) return 100;
-      else return (rating-ratings[i])*100/(ratings[i+1]-ratings[i]);
+    if (rating < ratings[i]) {
+      const lower = ratings[i-1];
+      const upper = ratings[i];
+      return (rating-lower)*100/(upper-lower);
     }
   }
+  return 100;
 }
   
 
