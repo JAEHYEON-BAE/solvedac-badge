@@ -98,7 +98,7 @@ function generateBadge(data) {
   <rect x="5%" y="67" width="90%" height="30" fill="url(#a)">
     <animate 
       attributeName="width" 
-      from="0" 
+      from="5%" 
       to="${percent}%" 
       dur="1.5s" 
       fill="freeze" 
