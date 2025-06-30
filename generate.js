@@ -35,9 +35,9 @@ function getPercentage(rating) {
     3000
   ];
   for (let i = 0; i < ratings.length; i++) {
-    if (rating >= arr[i]) {
-      if (arr[i]==3000) return 100;
-      else return (rating-arr[i])*100/(arr[i+1]-arr[i]);
+    if (rating >= ratings[i]) {
+      if (ratings[i]==3000) return 100;
+      else return (rating-ratings[i])*100/(ratings[i+1]-ratings[i]);
     }
   }
 }
