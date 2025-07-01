@@ -52,7 +52,7 @@ function generateBadge(data) {
   const percent = getPercentage(rating);
 
   const svg = `
-<svg width="600" height="120" xmlns="http://www.w3.org/2000/svg">
+<svg width="600" height="80" xmlns="http://www.w3.org/2000/svg">
   <linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="0%">
     <stop offset="0" stop-color="#27e2a4"/>
     <stop offset="1" stop-color="#00b4fc"/>
@@ -76,7 +76,7 @@ function generateBadge(data) {
   </style>
 
   <g font-family="Noto Sans,Verdana,Geneva,sans-serif" font-size="20" font-weight="bold">
-    <text id="rating" x="5%" y="50%" class="text" text-anchor="middle">${rating}
+    <text id="rating" x="5%" y="0%" class="text" text-anchor="middle" dominant-baseline="hanging">${rating}
       <animate
         attributeName="x"
         from="5%"
@@ -94,8 +94,8 @@ function generateBadge(data) {
 
   </g>
 
-  <rect x="5%" y="67" width="90%" height="30" class="bar-bg"/>
-  <rect x="5%" y="67" width="90%" height="30" fill="url(#a)">
+  <rect x="5%" y="25" width="90%" height="30" class="bar-bg"/>
+  <rect x="5%" y="25" width="90%" height="30" fill="url(#a)">
     <animate 
       attributeName="width" 
       from="0" 
