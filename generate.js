@@ -80,7 +80,7 @@ function generateBadge(data) {
       <animate
         attributeName="x"
         from="5%"
-        to="${percent}%"
+        to="${percent*0.9 + 5}%"
         dur="1s"
         fill="freeze"
         calcMode="spline" 
@@ -98,8 +98,8 @@ function generateBadge(data) {
   <rect x="5%" y="67" width="90%" height="30" fill="url(#a)">
     <animate 
       attributeName="width" 
-      from="5%" 
-      to="${percent}%" 
+      from="0" 
+      to="${percent * 0.9}%" 
       dur="1.5s" 
       fill="freeze" 
       calcMode="spline" 
