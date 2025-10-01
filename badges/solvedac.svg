@@ -22,11 +22,11 @@
   </style>
 
   <g font-family="Noto Sans,Verdana,Geneva,sans-serif" font-size="20" font-weight="bold">
-    <text id="rating" x="5%" y="0%" class="text" text-anchor="middle" dominant-baseline="hanging">2215
+    <text id="rating" x="5%" y="0%" class="text" text-anchor="middle" dominant-baseline="hanging">2216
       <animate
         attributeName="x"
         from="5%"
-        to="18.5%"
+        to="19.4%"
         dur="1s"
         fill="freeze"
         calcMode="spline" 
@@ -36,7 +36,7 @@
     </text>
     
     <text x="0" y="100%" class="text" text-anchor="start">Diamond V</text>
-    <text x="100%" y="100%" class="text" text-anchor="end">789 solved</text>
+    <text x="100%" y="100%" class="text" text-anchor="end">792 solved</text>
 
   </g>
 
@@ -45,7 +45,7 @@
     <animate 
       attributeName="width" 
       from="0" 
-      to="13.5%" 
+      to="14.4%" 
       dur="1.5s" 
       fill="freeze" 
       calcMode="spline" 
