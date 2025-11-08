@@ -5,7 +5,7 @@
   "badgeId": "balance_8_3",
   "backgroundId": "dgist2024",
   "profileImageUrl": null,
-  "solvedCount": 847,
+  "solvedCount": 848,
   "voteCount": 105,
   "class": 7,
   "classDecoration": "none",
@@ -17,7 +17,7 @@
   "ratingByClass": 220,
   "ratingBySolvedCount": 184,
   "ratingByVoteCount": 25,
-  "overRating": 120106,
+  "overRating": 120258,
   "overRatingCutoff": 1,
   "arenaTier": 1,
   "arenaRating": 374,
@@ -26,9 +26,9 @@
   "arenaCompetedRoundCount": 1,
   "maxStreak": 48,
   "coins": 117,
-  "stardusts": 46749,
+  "stardusts": 47079,
   "joinedAt": "2023-11-21T04:23:37.714Z",
   "bannedUntil": "1970-01-01T00:00:00.000Z",
   "proUntil": "1970-01-01T00:00:00.000Z",
-  "rank": 1329
+  "rank": 1330
 }
